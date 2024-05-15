@@ -7,7 +7,11 @@ import dotenv from 'dotenv'
 const app = express()
 dotenv.config()
 
-connectDB()
+connectDB().then(()=>app.listen(process.env.PORT || 8000, ()=>{
+    console.log(`server is connected at ${process.env.PORT}`);
+})).catch((err)=>{
+    console.log('mongo db connection failed', err);
+})
 
 
 
