@@ -1,10 +1,12 @@
 // import mongoose from "mongoose";
-import express from 'express'
+
 import connectDB from "./db/db.js";
 import dotenv from 'dotenv'
+import { app } from './app.js';
 
 
-const app = express()
+// const app = express()
+// app()
 dotenv.config()
 
 connectDB().then(()=>app.listen(process.env.PORT || 8000, ()=>{
